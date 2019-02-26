@@ -10,8 +10,10 @@ import Foundation
 
 final class ViewControllerFactory: ViewControllerFactoryType {
     
-    func makeRecipeListView() -> RecipeListViewController {
-        let weatherVC = RecipeListViewController()
-        return weatherVC
+    func makeRecipeListView(appContext: AppContextType, delegate: RecipeListViewControllerDelegate) -> RecipeListViewController {
+        let recipeListVC = RecipeListViewController()
+        recipeListVC.appContext = appContext
+        recipeListVC.delegate = delegate
+        return recipeListVC
     }
 }

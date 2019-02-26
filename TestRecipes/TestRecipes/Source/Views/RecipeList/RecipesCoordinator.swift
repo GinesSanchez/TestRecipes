@@ -29,7 +29,7 @@ final class RecipesCoordinator: RecipesCoordinatorType {
     }
 
     func start() {
-        recipeListViewController = viewControllerFactory.makeRecipeListView()
+        recipeListViewController = viewControllerFactory.makeRecipeListView(appContext: appContext, delegate: self)
         navigationController?.pushViewController(recipeListViewController!, animated: true)
     }
 
@@ -37,4 +37,8 @@ final class RecipesCoordinator: RecipesCoordinatorType {
         navigationController?.popViewController(animated: false)
         recipeListViewController = nil
     }
+}
+
+extension RecipesCoordinator: RecipeListViewControllerDelegate {
+    //TODO:
 }

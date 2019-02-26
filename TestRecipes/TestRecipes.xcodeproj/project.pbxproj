@@ -23,6 +23,11 @@
 		22293CB92225C6D500679971 /* CoordinatorFactoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293CB52225C6D500679971 /* CoordinatorFactoryType.swift */; };
 		22293CBA2225C6D500679971 /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293CB62225C6D500679971 /* CoordinatorFactory.swift */; };
 		22293CBD2225C7D500679971 /* Coordinating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293CBC2225C7D500679971 /* Coordinating.swift */; };
+		22293CC12225CB0400679971 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293CBF2225CB0300679971 /* NetworkManager.swift */; };
+		22293CC22225CB0400679971 /* NetworkManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293CC02225CB0300679971 /* NetworkManagerType.swift */; };
+		22293CC42225CB2900679971 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293CC32225CB2900679971 /* Constants.swift */; };
+		22293CC82225CB6D00679971 /* RecipeManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293CC72225CB6D00679971 /* RecipeManagerType.swift */; };
+		22293CCA2225CB7900679971 /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293CC92225CB7900679971 /* RecipeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +61,11 @@
 		22293CB52225C6D500679971 /* CoordinatorFactoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryType.swift; sourceTree = "<group>"; };
 		22293CB62225C6D500679971 /* CoordinatorFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		22293CBC2225C7D500679971 /* Coordinating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinating.swift; sourceTree = "<group>"; };
+		22293CBF2225CB0300679971 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		22293CC02225CB0300679971 /* NetworkManagerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerType.swift; sourceTree = "<group>"; };
+		22293CC32225CB2900679971 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		22293CC72225CB6D00679971 /* RecipeManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManagerType.swift; sourceTree = "<group>"; };
+		22293CC92225CB7900679971 /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,11 +145,13 @@
 		22293CA12225C5F900679971 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				22293CBB2225C7C500679971 /* Protocols */,
 				22293CB22225C6C600679971 /* Factories */,
+				22293CBE2225CAC500679971 /* Managers */,
+				22293CBB2225C7C500679971 /* Protocols */,
 				22293CA62225C64F00679971 /* AppContext.swift */,
 				22293CA22225C63400679971 /* AppCoordinator.swift */,
 				22293C7F2225C32100679971 /* AppDelegate.swift */,
+				22293CC32225CB2900679971 /* Constants.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -180,6 +192,33 @@
 				22293CBC2225C7D500679971 /* Coordinating.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		22293CBE2225CAC500679971 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				22293CC62225CB4A00679971 /* RecipeManager */,
+				22293CC52225CB3900679971 /* NetWorkManager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		22293CC52225CB3900679971 /* NetWorkManager */ = {
+			isa = PBXGroup;
+			children = (
+				22293CBF2225CB0300679971 /* NetworkManager.swift */,
+				22293CC02225CB0300679971 /* NetworkManagerType.swift */,
+			);
+			path = NetWorkManager;
+			sourceTree = "<group>";
+		};
+		22293CC62225CB4A00679971 /* RecipeManager */ = {
+			isa = PBXGroup;
+			children = (
+				22293CC92225CB7900679971 /* RecipeManager.swift */,
+				22293CC72225CB6D00679971 /* RecipeManagerType.swift */,
+			);
+			path = RecipeManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,10 +322,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22293CC22225CB0400679971 /* NetworkManagerType.swift in Sources */,
+				22293CCA2225CB7900679971 /* RecipeManager.swift in Sources */,
 				22293CB82225C6D500679971 /* ViewControllerFactory.swift in Sources */,
 				22293CB72225C6D500679971 /* ViewControllerFactoryType.swift in Sources */,
 				22293CBA2225C6D500679971 /* CoordinatorFactory.swift in Sources */,
+				22293CC12225CB0400679971 /* NetworkManager.swift in Sources */,
+				22293CC42225CB2900679971 /* Constants.swift in Sources */,
 				22293CAF2225C6AB00679971 /* RecipesCoordinator.swift in Sources */,
+				22293CC82225CB6D00679971 /* RecipeManagerType.swift in Sources */,
 				22293CA72225C64F00679971 /* AppContext.swift in Sources */,
 				22293CAC2225C69600679971 /* RecipeListViewController.swift in Sources */,
 				22293CB12225C6BA00679971 /* RecipeListViewModel.swift in Sources */,

@@ -10,5 +10,5 @@ import Foundation
 
 protocol ViewControllerFactoryType {
 
-    func makeRecipeListView() -> RecipeListViewController
+    func makeRecipeListView(appContext: AppContextType, delegate: RecipeListViewControllerDelegate) -> RecipeListViewController
 }

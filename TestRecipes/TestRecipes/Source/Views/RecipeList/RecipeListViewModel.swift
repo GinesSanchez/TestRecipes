@@ -7,3 +7,23 @@
 //
 
 import Foundation
+
+protocol RecipeListViewModelDelegate: class {
+    //TODO:
+}
+
+final class RecipeListViewModel {
+
+    private weak var delegate: RecipeListViewModelDelegate?
+    private var appContext: AppContextType
+
+
+    init(delegate: RecipeListViewModelDelegate, appContext: AppContextType) {
+        self.delegate = delegate
+        self.appContext = appContext
+
+        self.appContext.recipeManager.getRecipes(filter: "tomato") { (json, error) in
+            //TODO:
+        }
+    }
+}
