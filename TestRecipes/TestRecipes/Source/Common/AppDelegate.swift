@@ -11,12 +11,23 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
+    var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+    var appContext = AppContext()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        guard window != nil else {
+            return false
+        }
+
+        window?.rootViewController = appContext.appCoordinator?.navigationController
+        window?.makeKeyAndVisible()
+        appContext.appCoordinator?.start()
         return true
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        appContext.appCoordinator?.stop()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -36,11 +47,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
 }
 
