@@ -6,7 +6,7 @@
 //  Copyright © 2019 Ginés Sánchez. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class NetworkManager: NetworkManagerType {
 
@@ -27,7 +27,7 @@ final class NetworkManager: NetworkManagerType {
         return components.url!
     }
 
-    func getJson(with url: URL, completionHandler: @escaping ([String: Any]?, Error?) -> Void) {
+    func getJson(url: URL, completionHandler: @escaping ([String: Any]?, Error?) -> Void) {
 
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else {
@@ -43,5 +43,20 @@ final class NetworkManager: NetworkManagerType {
         }
 
         task.resume()
+    }
+
+    func getData(url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        URLSession.shared.dataTask(with: url, completionHandler: completionHandler).resume()
+    }
+
+    func getImage(url: URL, completionHandler: @escaping (UIImage?, Error?) -> Void) {
+        getData(url: url) { (data, response, error) in
+            guard let data = data else {
+                completionHandler(nil, error)
+                return
+            }
+
+            completionHandler(UIImage(data: data), nil)
+        }
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Ginés Sánchez. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class RecipeManager: RecipeManagerType {
 
@@ -16,7 +16,7 @@ final class RecipeManager: RecipeManagerType {
         self.networkManager = networkManager
     }
 
-    func getRecipes(filter: String?, completionHandler: @escaping ([RecipeSearchResult]?, RecipeManagerError?) -> Void) {
+    func getRecipes(ingredient: String?, completionHandler: @escaping ([RecipeSearchResult]?, RecipeManagerError?) -> Void) {
 
         let url = networkManager.createURLWith(apiScheme: Constants.RecipeAPIDetails.apiScheme,
                                                apiHost: Constants.RecipeAPIDetails.apiHost,
@@ -24,7 +24,7 @@ final class RecipeManager: RecipeManagerType {
                                                parameters: [Constants.RecipeAPIDetails.searchQueryKey : filter ?? "",
                                                             Constants.RecipeAPIDetails.apiKey: Constants.RecipeAPIDetails.apiKeyValue])
 
-        networkManager.getJson(with: url) { (json, error) in
+        networkManager.getJson(url: url) { (json, error) in
             guard let json = json else {
                 guard let error = error else {
                     completionHandler(nil, .unknownError)
@@ -59,6 +59,37 @@ final class RecipeManager: RecipeManagerType {
             } else {
                 completionHandler(nil, .malformedRecipeSearchResultJson)
             }
+        }
+    }
+
+    func getRecipeImage(urlString: String, completionHandler: @escaping (UIImage?, RecipeManagerError?) -> Void) {        
+
+        if let url = URL(unsecureUrlString: urlString) {
+            networkManager.getImage(url: url) { (image, error) in
+                guard let image = image else {                    
+                    guard let error = error else {
+                        completionHandler(nil, .unknownError)
+                        return
+                    }
+
+                    let errorCode = (error as NSError).code
+
+                    switch errorCode {
+                    case -1009:
+                        completionHandler(nil, .noInternetConnection)
+                        break
+                    default:
+                        completionHandler(nil, .noDownloadedImage)
+                        break
+                    }
+
+                    return
+                }
+
+                completionHandler(image, nil)
+            }
+        } else {
+            completionHandler(nil, .malformedURL)
         }
     }
 }

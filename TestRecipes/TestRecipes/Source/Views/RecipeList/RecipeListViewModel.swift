@@ -23,8 +23,15 @@ final class RecipeListViewModel {
         self.appContext = appContext
 
         //TODO: Remove sample code
-        self.appContext.recipeManager.getRecipes(filter: "tomato") { (searchResultArray, error) in
+        self.appContext.recipeManager.getRecipes(filter: "tomato") { (searchResultArray, error) in            
+
             print(searchResultArray)
+
+            let recipe = searchResultArray?.first
+
+            self.appContext.recipeManager.getRecipeImage(urlString: recipe!.imageUrl, completionHandler: { (image, error) in
+                print(image)
+            })
         }
     }
 }

@@ -14,6 +14,8 @@ public enum RecipeManagerError: Error {
     case noInternetConnection
     case unknownApiError
     case unknownError
+    case malformedURL
+    case noDownloadedImage
 
     /// descriptive representation of error, should be used for debugging
     public var description: String {
@@ -26,6 +28,10 @@ public enum RecipeManagerError: Error {
             return "Unknown Api Error."
         case .unknownError:
             return "Uknown Error from the request."
+        case .malformedURL:
+            return "Malformed Request Url."
+        case .noDownloadedImage:
+            return "There were problems downloading the image."
         }        
     }
 }
