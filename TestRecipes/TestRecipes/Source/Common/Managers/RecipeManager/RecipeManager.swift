@@ -16,7 +16,7 @@ final class RecipeManager: RecipeManagerType {
         self.networkManager = networkManager
     }
 
-    func getRecipes(filter: String?, completionHandler: @escaping ([String: Any]?, Error?) -> Void) {
+    func getRecipes(filter: String?, completionHandler: @escaping ([RecipeSearchResult]?, RecipeManagerError?) -> Void) {
 
         let url = networkManager.createURLWith(apiScheme: Constants.RecipeAPIDetails.apiScheme,
                                                apiHost: Constants.RecipeAPIDetails.apiHost,
@@ -26,13 +26,39 @@ final class RecipeManager: RecipeManagerType {
 
         networkManager.getJson(with: url) { (json, error) in
             guard let json = json else {
-                //TODO:
+                guard let error = error else {
+                    completionHandler(nil, .unknownError)
+                    return
+                }
+                let errorCode = (error as NSError).code
+
+                switch errorCode {
+                case -1009:
+                    completionHandler(nil, .noInternetConnection)
+                    break
+                case 3840:
+                    //We always get this error for any api error: wrong key, wrong url...
+                    completionHandler(nil, .unknownApiError)
+                default:
+                    completionHandler(nil, .unknownError)
+                    break
+                }
+
                 return
             }
 
-            print(json)
-            //TODO:
-            completionHandler(nil, nil)
+            if let jsonArray = json["recipes"] as? [[String: Any]] {
+                var searchResultJson: [RecipeSearchResult] = []
+                do {
+                    searchResultJson = try Array(withJSONArray: jsonArray)
+                } catch {
+                    completionHandler(nil, .malformedRecipeSearchResultJson)
+                }
+                completionHandler(searchResultJson, nil)
+
+            } else {
+                completionHandler(nil, .malformedRecipeSearchResultJson)
+            }
         }
     }
 }

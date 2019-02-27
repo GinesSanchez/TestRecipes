@@ -22,8 +22,9 @@ final class RecipeListViewModel {
         self.delegate = delegate
         self.appContext = appContext
 
-        self.appContext.recipeManager.getRecipes(filter: "tomato") { (json, error) in
-            //TODO:
+        //TODO: Remove sample code
+        self.appContext.recipeManager.getRecipes(filter: "tomato") { (searchResultArray, error) in
+            print(searchResultArray)
         }
     }
 }
