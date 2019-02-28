@@ -20,6 +20,7 @@ final class RecipesCoordinator: RecipesCoordinatorType {
 
     var recipeListViewController: RecipeListViewController?
     var recipeDetailViewController: RecipeDetailViewController?
+    var webViewControler: WebViewController?
 
     init(appContext: AppContextType, navigationController: UINavigationController) {
         self.appContext = appContext
@@ -51,7 +52,7 @@ extension RecipesCoordinator: RecipeListViewControllerDelegate {
 extension RecipesCoordinator: RecipeDetailViewControllerDelegate {
 
     func openWebView(url: URL) {
-        print(url)
-        //TODO: Open web view controller with url
+        webViewControler = viewControllerFactory.makeWebView(url: url)
+        navigationController?.pushViewController(webViewControler!, animated: true)        
     }
 }

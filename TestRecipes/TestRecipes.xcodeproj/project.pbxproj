@@ -38,6 +38,8 @@
 		2242D8102227E61900F30DE8 /* RecipeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2242D80E2227E61900F30DE8 /* RecipeDetailViewController.xib */; };
 		2242D8122227E65100F30DE8 /* RecipeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242D8112227E65100F30DE8 /* RecipeDetailViewModel.swift */; };
 		2242D8162227E9D800F30DE8 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242D8152227E9D800F30DE8 /* Recipe.swift */; };
+		2242D81A22281BEE00F30DE8 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242D81822281BEE00F30DE8 /* WebViewController.swift */; };
+		2242D81B22281BEE00F30DE8 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2242D81922281BEE00F30DE8 /* WebViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,8 @@
 		2242D80E2227E61900F30DE8 /* RecipeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeDetailViewController.xib; sourceTree = "<group>"; };
 		2242D8112227E65100F30DE8 /* RecipeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewModel.swift; sourceTree = "<group>"; };
 		2242D8152227E9D800F30DE8 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		2242D81822281BEE00F30DE8 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		2242D81922281BEE00F30DE8 /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,8 @@
 		22293CA82225C67300679971 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				22293CAE2225C6AB00679971 /* RecipesCoordinator.swift */,
+				2242D81722281BD100F30DE8 /* WebView */,
 				2242D80C2227E5FD00F30DE8 /* RecipeDetail */,
 				22293CA92225C67C00679971 /* RecipeList */,
 			);
@@ -208,7 +214,6 @@
 		22293CA92225C67C00679971 /* RecipeList */ = {
 			isa = PBXGroup;
 			children = (
-				22293CAE2225C6AB00679971 /* RecipesCoordinator.swift */,
 				22293CAA2225C69600679971 /* RecipeListViewController.swift */,
 				22293CAB2225C69600679971 /* RecipeListViewController.xib */,
 				22293CB02225C6BA00679971 /* RecipeListViewModel.swift */,
@@ -281,6 +286,15 @@
 				2242D8112227E65100F30DE8 /* RecipeDetailViewModel.swift */,
 			);
 			path = RecipeDetail;
+			sourceTree = "<group>";
+		};
+		2242D81722281BD100F30DE8 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				2242D81822281BEE00F30DE8 /* WebViewController.swift */,
+				2242D81922281BEE00F30DE8 /* WebViewController.xib */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,6 +381,7 @@
 				22293CAD2225C69600679971 /* RecipeListViewController.xib in Resources */,
 				2242D8102227E61900F30DE8 /* RecipeDetailViewController.xib in Resources */,
 				22293C8A2225C32200679971 /* LaunchScreen.storyboard in Resources */,
+				2242D81B22281BEE00F30DE8 /* WebViewController.xib in Resources */,
 				22293C872225C32200679971 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22293CC22225CB0400679971 /* NetworkManagerType.swift in Sources */,
+				2242D81A22281BEE00F30DE8 /* WebViewController.swift in Sources */,
 				22293CCA2225CB7900679971 /* RecipeManager.swift in Sources */,
 				22293CB82225C6D500679971 /* ViewControllerFactory.swift in Sources */,
 				22293CB72225C6D500679971 /* ViewControllerFactoryType.swift in Sources */,

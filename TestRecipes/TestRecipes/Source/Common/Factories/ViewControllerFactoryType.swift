@@ -13,4 +13,6 @@ protocol ViewControllerFactoryType {
     func makeRecipeListView(appContext: AppContextType, delegate: RecipeListViewControllerDelegate) -> RecipeListViewController
 
     func makeRecipeDetailView(recipeId: String, appContext: AppContextType, delegate: RecipeDetailViewControllerDelegate) -> RecipeDetailViewController
+
+    func makeWebView(url: URL) -> WebViewController
 }

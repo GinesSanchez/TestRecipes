@@ -139,12 +139,12 @@ public extension RecipeDetailViewModel {
 
     var instructionsUrl: URL? {
         guard let recipe = self.recipe else { return nil }
-        return URL(string: recipe.instructionsUrl)
+        return URL(unsecureUrlString: recipe.instructionsUrl)
     }
 
     var originalUrl: URL? {
         guard let recipe = self.recipe else { return nil }
-        return URL(string: recipe.originalUrl)
+        return URL(unsecureUrlString: recipe.originalUrl)
     }
 }
 
