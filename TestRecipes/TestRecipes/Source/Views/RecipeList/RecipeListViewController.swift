@@ -105,8 +105,9 @@ extension RecipeListViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension RecipeListViewController: UITableViewDelegate {
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
         delegate?.didSelect(recipe: viewModel.recipeForRowAt(indexPath: indexPath))
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

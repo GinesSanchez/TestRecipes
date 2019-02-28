@@ -118,6 +118,7 @@ extension RecipeDetailViewController: UITableViewDataSource {
         let cell: UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell()
 
         cell.textLabel?.text = viewModel.ingredientForRowAt(indexPath:indexPath)
+        cell.isUserInteractionEnabled = false
         return cell
     }
 }
