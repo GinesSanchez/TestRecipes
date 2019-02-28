@@ -8,12 +8,12 @@
 
 import UIKit
 
-enum RecipeReadyState {
+enum RecipeDetailReadyState {
     case recipeLoaded
 }
 
 protocol RecipeDetailViewModelDelegate: class {
-    func viewModel(_ viewModel: RecipeDetailViewModel, stateDidChange state: ViewModelState<RecipeReadyState>)
+    func viewModel(_ viewModel: RecipeDetailViewModel, stateDidChange state: ViewModelState<RecipeDetailReadyState>)
 }
 
 final public class RecipeDetailViewModel {
@@ -22,7 +22,7 @@ final public class RecipeDetailViewModel {
     private var appContext: AppContextType
     private var recipe: Recipe?
 
-    var viewModelState: ViewModelState<RecipeReadyState> = .loading {
+    var viewModelState: ViewModelState<RecipeDetailReadyState> = .loading {
         didSet {
             updateViewState(viewModelState)
         }
@@ -63,7 +63,7 @@ public extension RecipeDetailViewModel {
 
 private extension RecipeDetailViewModel {
 
-    func updateViewState(_ state: ViewModelState<RecipeReadyState>) {
+    func updateViewState(_ state: ViewModelState<RecipeDetailReadyState>) {
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.delegate?.viewModel(strongSelf, stateDidChange: state)

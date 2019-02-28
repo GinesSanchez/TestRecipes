@@ -126,7 +126,7 @@ extension RecipeDetailViewController: UITableViewDataSource {
 //MARK: - UITableViewDataSource
 extension RecipeDetailViewController: RecipeDetailViewModelDelegate {
 
-    func viewModel(_ viewModel: RecipeDetailViewModel, stateDidChange state: ViewModelState<RecipeReadyState>) {
+    func viewModel(_ viewModel: RecipeDetailViewModel, stateDidChange state: ViewModelState<RecipeDetailReadyState>) {
         switch state {
         case .empty:
             handleEmptyState()
@@ -147,7 +147,7 @@ private extension RecipeDetailViewController {
         updateView()
     }
 
-    func handleReadyState(viewModel: RecipeDetailViewModel, state: RecipeReadyState) {
+    func handleReadyState(viewModel: RecipeDetailViewModel, state: RecipeDetailReadyState) {
         updateView()
     }
 
