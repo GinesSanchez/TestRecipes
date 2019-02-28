@@ -21,7 +21,7 @@ final class RecipeManager: RecipeManagerType {
         let url = networkManager.createURLWith(apiScheme: Constants.RecipeAPIDetails.apiScheme,
                                                apiHost: Constants.RecipeAPIDetails.apiHost,
                                                apiPath: Constants.RecipeAPIDetails.apiSearchPath,
-                                               parameters: [Constants.RecipeAPIDetails.searchQueryKey : filter ?? "",
+                                               parameters: [Constants.RecipeAPIDetails.searchQueryKey : ingredient ?? "",
                                                             Constants.RecipeAPIDetails.apiKey: Constants.RecipeAPIDetails.apiKeyValue])
 
         networkManager.getJson(url: url) { (json, error) in

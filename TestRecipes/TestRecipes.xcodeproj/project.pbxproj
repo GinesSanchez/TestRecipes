@@ -32,6 +32,8 @@
 		22293CC42225CB2900679971 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293CC32225CB2900679971 /* Constants.swift */; };
 		22293CC82225CB6D00679971 /* RecipeManagerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293CC72225CB6D00679971 /* RecipeManagerType.swift */; };
 		22293CCA2225CB7900679971 /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293CC92225CB7900679971 /* RecipeManager.swift */; };
+		2242D8072227C37800F30DE8 /* ViewModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242D8062227C37800F30DE8 /* ViewModelState.swift */; };
+		2242D8092227CF5D00F30DE8 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242D8082227CF5D00F30DE8 /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		22293CC32225CB2900679971 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		22293CC72225CB6D00679971 /* RecipeManagerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManagerType.swift; sourceTree = "<group>"; };
 		22293CC92225CB7900679971 /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
+		2242D8062227C37800F30DE8 /* ViewModelState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelState.swift; sourceTree = "<group>"; };
+		2242D8082227CF5D00F30DE8 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				2222887422270C6F00CA6E5D /* URL.swift */,
+				2242D8082227CF5D00F30DE8 /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 		22293CA12225C5F900679971 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2242D8052227C36000F30DE8 /* Enums */,
 				2222887322270C6200CA6E5D /* Extensions */,
 				22293CB22225C6C600679971 /* Factories */,
 				22293CBE2225CAC500679971 /* Managers */,
@@ -247,6 +253,14 @@
 				2222887122266BE900CA6E5D /* RecipeManagerError.swift */,
 			);
 			path = RecipeManager;
+			sourceTree = "<group>";
+		};
+		2242D8052227C36000F30DE8 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				2242D8062227C37800F30DE8 /* ViewModelState.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,6 +370,7 @@
 				22293CB72225C6D500679971 /* ViewControllerFactoryType.swift in Sources */,
 				22293CBA2225C6D500679971 /* CoordinatorFactory.swift in Sources */,
 				22293CC12225CB0400679971 /* NetworkManager.swift in Sources */,
+				2242D8072227C37800F30DE8 /* ViewModelState.swift in Sources */,
 				22293CC42225CB2900679971 /* Constants.swift in Sources */,
 				22293CAF2225C6AB00679971 /* RecipesCoordinator.swift in Sources */,
 				2222887022266B1400CA6E5D /* JSONInitializable.swift in Sources */,
@@ -368,6 +383,7 @@
 				22293C822225C32100679971 /* ViewController.swift in Sources */,
 				22293CB92225C6D500679971 /* CoordinatorFactoryType.swift in Sources */,
 				2222887522270C6F00CA6E5D /* URL.swift in Sources */,
+				2242D8092227CF5D00F30DE8 /* UIImage.swift in Sources */,
 				2222886E2226640400CA6E5D /* RecipeSearchResult.swift in Sources */,
 				22293CBD2225C7D500679971 /* Coordinating.swift in Sources */,
 				22293C802225C32100679971 /* AppDelegate.swift in Sources */,
