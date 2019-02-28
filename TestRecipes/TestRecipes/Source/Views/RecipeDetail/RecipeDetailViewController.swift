@@ -24,5 +24,9 @@ final class RecipeDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         print(recipe)
+
+        appContext.recipeManager.getRecipe(id: recipe.recipeId) { (recipe, error) in
+            print(recipe)
+        }
     }
 }

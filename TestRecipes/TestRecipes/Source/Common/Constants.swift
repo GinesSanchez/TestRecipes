@@ -18,6 +18,6 @@ enum Constants {
         static let apiKey: String = "key"
         static let searchQueryKey: String = "q"
         static let recipeIdKey: String = "rId"
-        static let apiKeyValue: String = "b549c4c96152e677eb90de4604ca61a2"        
+        static let apiKeyValue: String = "c03f1fe8a8c1f9ef7f50fc52eccbe70c"        
     }
 }

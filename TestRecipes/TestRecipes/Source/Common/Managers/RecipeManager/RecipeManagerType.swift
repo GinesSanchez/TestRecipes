@@ -14,13 +14,20 @@ protocol RecipeManagerType {
     ///
     /// - Parameter
     ///     - ingredient: optional string with the name of one ingredient to filtering with.
-    ///     - completionHandler: will be triggred when the request is done. If it is successfull, an array of Recipe Search Result is returned. Error will be nil if successful. If there is an error, a Recipe Manager Error is returned, and dictionary will be nil.
+    ///     - completionHandler: will be triggred when the request is done. If it is successfull, an array of Recipe Search Result is returned. Error will be nil if successful. If there is an error, a Recipe Manager Error is returned, and array will be nil.
     func getRecipes(ingredient: String?, completionHandler: @escaping ([RecipeSearchResult]?, RecipeManagerError?) -> Void)
 
     /// Get image of recipe
     ///
     /// - Parameter
     ///     - urlString: string with the url of the image.
-    ///     - completionHandler: will be triggred when the request is done. If it is successfull, an UIImage is returned. Error will be nil if successful. If there is an error, a Recipe Manager Error is returned, and dictionary will be nil
+    ///     - completionHandler: will be triggred when the request is done. If it is successfull, an UIImage is returned. Error will be nil if successful. If there is an error, a Recipe Manager Error is returned, and the image will be nil
     func getRecipeImage(urlString: String, completionHandler: @escaping (UIImage?, RecipeManagerError?) -> Void)
+
+    /// Get recipe
+    ///
+    /// - Parameter
+    ///     - id: string with the id of the recipe.
+    ///     - completionHandler: will be triggred when the request is done. If it is successfull, an Recipe is returned. Error will be nil if successful. If there is an error, a Recipe Manager Error is returned, and recipe will be nil
+    func getRecipe(id: String, completionHandler: @escaping (Recipe?, RecipeManagerError?) -> Void)
 }

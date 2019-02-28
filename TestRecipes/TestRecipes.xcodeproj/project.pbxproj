@@ -37,6 +37,7 @@
 		2242D80F2227E61900F30DE8 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242D80D2227E61900F30DE8 /* RecipeDetailViewController.swift */; };
 		2242D8102227E61900F30DE8 /* RecipeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2242D80E2227E61900F30DE8 /* RecipeDetailViewController.xib */; };
 		2242D8122227E65100F30DE8 /* RecipeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242D8112227E65100F30DE8 /* RecipeDetailViewModel.swift */; };
+		2242D8162227E9D800F30DE8 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242D8152227E9D800F30DE8 /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		2242D80D2227E61900F30DE8 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		2242D80E2227E61900F30DE8 /* RecipeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeDetailViewController.xib; sourceTree = "<group>"; };
 		2242D8112227E65100F30DE8 /* RecipeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewModel.swift; sourceTree = "<group>"; };
+		2242D8152227E9D800F30DE8 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				2222886D2226640400CA6E5D /* RecipeSearchResult.swift */,
+				2242D8152227E9D800F30DE8 /* Recipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				2222887522270C6F00CA6E5D /* URL.swift in Sources */,
 				2242D8092227CF5D00F30DE8 /* UIImage.swift in Sources */,
 				2222886E2226640400CA6E5D /* RecipeSearchResult.swift in Sources */,
+				2242D8162227E9D800F30DE8 /* Recipe.swift in Sources */,
 				22293CBD2225C7D500679971 /* Coordinating.swift in Sources */,
 				22293C802225C32100679971 /* AppDelegate.swift in Sources */,
 			);
