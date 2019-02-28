@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RecipeListViewControllerDelegate: class {
-    //TODO:
+    func didSelect(recipe: RecipeSearchResult)
 }
 
 final class RecipeListViewController: UIViewController {
@@ -104,7 +104,10 @@ extension RecipeListViewController: UITableViewDataSource {
 
 //MARK: - UITableViewDelegate
 extension RecipeListViewController: UITableViewDelegate {
-    //TODO: Add navigation to detail view
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.didSelect(recipe: recipeListViewModel.recipeForRowAt(indexPath: indexPath))
+    }
 }
 
 //MARK: - UISearchBarDelegate

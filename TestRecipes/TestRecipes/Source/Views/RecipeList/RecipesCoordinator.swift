@@ -6,7 +6,6 @@
 //  Copyright © 2019 Ginés Sánchez. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 protocol RecipesCoordinatorType: Coordinating {
@@ -20,6 +19,7 @@ final class RecipesCoordinator: RecipesCoordinatorType {
     var navigationController: UINavigationController?
 
     var recipeListViewController: RecipeListViewController?
+    var recipeDetailViewController: RecipeDetailViewController?
 
     init(appContext: AppContextType, navigationController: UINavigationController) {
         self.appContext = appContext
@@ -40,5 +40,14 @@ final class RecipesCoordinator: RecipesCoordinatorType {
 }
 
 extension RecipesCoordinator: RecipeListViewControllerDelegate {
+
+    func didSelect(recipe: RecipeSearchResult) {
+
+        recipeDetailViewController = viewControllerFactory.makeRecipeDetailView(recipe: recipe, appContext: appContext, delegate: self)
+        navigationController?.pushViewController(recipeDetailViewController!, animated: true)
+    }
+}
+
+extension RecipesCoordinator: RecipeDetailViewControllerDelegate {
     //TODO:
 }

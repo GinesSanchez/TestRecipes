@@ -148,4 +148,8 @@ public extension RecipeListViewModel {
             completionHandler(image.resize(newWidth: 20, newHeight: 20), nil)
         })
     }
+
+    func recipeForRowAt(indexPath: IndexPath) -> RecipeSearchResult {
+        return searchResultArray[indexPath.row]
+    }
 }

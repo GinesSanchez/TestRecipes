@@ -34,6 +34,9 @@
 		22293CCA2225CB7900679971 /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293CC92225CB7900679971 /* RecipeManager.swift */; };
 		2242D8072227C37800F30DE8 /* ViewModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242D8062227C37800F30DE8 /* ViewModelState.swift */; };
 		2242D8092227CF5D00F30DE8 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242D8082227CF5D00F30DE8 /* UIImage.swift */; };
+		2242D80F2227E61900F30DE8 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242D80D2227E61900F30DE8 /* RecipeDetailViewController.swift */; };
+		2242D8102227E61900F30DE8 /* RecipeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2242D80E2227E61900F30DE8 /* RecipeDetailViewController.xib */; };
+		2242D8122227E65100F30DE8 /* RecipeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242D8112227E65100F30DE8 /* RecipeDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,9 @@
 		22293CC92225CB7900679971 /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		2242D8062227C37800F30DE8 /* ViewModelState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelState.swift; sourceTree = "<group>"; };
 		2242D8082227CF5D00F30DE8 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		2242D80D2227E61900F30DE8 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		2242D80E2227E61900F30DE8 /* RecipeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeDetailViewController.xib; sourceTree = "<group>"; };
+		2242D8112227E65100F30DE8 /* RecipeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +196,7 @@
 		22293CA82225C67300679971 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2242D80C2227E5FD00F30DE8 /* RecipeDetail */,
 				22293CA92225C67C00679971 /* RecipeList */,
 			);
 			path = Views;
@@ -261,6 +268,16 @@
 				2242D8062227C37800F30DE8 /* ViewModelState.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		2242D80C2227E5FD00F30DE8 /* RecipeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2242D80D2227E61900F30DE8 /* RecipeDetailViewController.swift */,
+				2242D80E2227E61900F30DE8 /* RecipeDetailViewController.xib */,
+				2242D8112227E65100F30DE8 /* RecipeDetailViewModel.swift */,
+			);
+			path = RecipeDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22293CAD2225C69600679971 /* RecipeListViewController.xib in Resources */,
+				2242D8102227E61900F30DE8 /* RecipeDetailViewController.xib in Resources */,
 				22293C8A2225C32200679971 /* LaunchScreen.storyboard in Resources */,
 				22293C872225C32200679971 /* Assets.xcassets in Resources */,
 			);
@@ -374,6 +392,7 @@
 				22293CC42225CB2900679971 /* Constants.swift in Sources */,
 				22293CAF2225C6AB00679971 /* RecipesCoordinator.swift in Sources */,
 				2222887022266B1400CA6E5D /* JSONInitializable.swift in Sources */,
+				2242D80F2227E61900F30DE8 /* RecipeDetailViewController.swift in Sources */,
 				22293CC82225CB6D00679971 /* RecipeManagerType.swift in Sources */,
 				22293CA72225C64F00679971 /* AppContext.swift in Sources */,
 				22293CAC2225C69600679971 /* RecipeListViewController.swift in Sources */,
@@ -381,6 +400,7 @@
 				22293CB12225C6BA00679971 /* RecipeListViewModel.swift in Sources */,
 				22293CA32225C63400679971 /* AppCoordinator.swift in Sources */,
 				22293C822225C32100679971 /* ViewController.swift in Sources */,
+				2242D8122227E65100F30DE8 /* RecipeDetailViewModel.swift in Sources */,
 				22293CB92225C6D500679971 /* CoordinatorFactoryType.swift in Sources */,
 				2222887522270C6F00CA6E5D /* URL.swift in Sources */,
 				2242D8092227CF5D00F30DE8 /* UIImage.swift in Sources */,

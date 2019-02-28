@@ -16,4 +16,12 @@ final class ViewControllerFactory: ViewControllerFactoryType {
         recipeListVC.delegate = delegate
         return recipeListVC
     }
+
+    func makeRecipeDetailView(recipe: RecipeSearchResult, appContext: AppContextType, delegate: RecipeDetailViewControllerDelegate) -> RecipeDetailViewController {
+        let recipeDetailVC = RecipeDetailViewController()
+        recipeDetailVC.recipe = recipe
+        recipeDetailVC.appContext = appContext
+        recipeDetailVC.delegate = delegate
+        return recipeDetailVC
+    }
 }
