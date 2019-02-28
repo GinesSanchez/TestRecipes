@@ -13,11 +13,6 @@ enum RecipeListReadyState {
     case recipesListFound
 }
 
-enum RecipeListViewModelError: Error {
-    //TODO: Change it?
-    case notReachable
-}
-
 protocol RecipeListViewModelDelegate: class {
     func viewModel(_ viewModel: RecipeListViewModel, stateDidChange state: ViewModelState<RecipeListReadyState>)
 }

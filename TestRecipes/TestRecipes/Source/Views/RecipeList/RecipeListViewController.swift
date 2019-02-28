@@ -19,7 +19,7 @@ final class RecipeListViewController: UIViewController {
     var appContext: AppContextType!
 
     //Private Properties
-    private var recipeListViewModel: RecipeListViewModel!
+    private var viewModel: RecipeListViewModel!
 
     //IBOutlets
     @IBOutlet weak var searchBar: UISearchBar!
@@ -48,7 +48,7 @@ private extension RecipeListViewController {
     }
 
     func setUpViewModel() {
-        recipeListViewModel = RecipeListViewModel(delegate: self, appContext: appContext)
+        viewModel = RecipeListViewModel(delegate: self, appContext: appContext)
     }
 
     func setUpNavigationBar() {
@@ -57,7 +57,7 @@ private extension RecipeListViewController {
 
     func setUpSearchBar() {
         searchBar.delegate = self
-        searchBar.placeholder = recipeListViewModel.searchBarPlaceholder        
+        searchBar.placeholder = viewModel.searchBarPlaceholder        
     }
 
     func setUpTableView() {
@@ -65,11 +65,11 @@ private extension RecipeListViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()    //Hide the extra empty cell divider lines
-        tableView.isHidden = recipeListViewModel.isTableViewHidden
+        tableView.isHidden = viewModel.isTableViewHidden
     }
 
     func setUpLabels() {
-        messageLabel.text = recipeListViewModel.messageText
+        messageLabel.text = viewModel.messageText
     }
 }
 
@@ -77,17 +77,17 @@ private extension RecipeListViewController {
 extension RecipeListViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recipeListViewModel.numberOfRowsInSection
+        return viewModel.numberOfRowsInSection
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell: UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell()
 
-        cell.textLabel?.text = recipeListViewModel.recipeSearchTitleForRowAt(indexPath: indexPath)
+        cell.textLabel?.text = viewModel.recipeSearchTitleForRowAt(indexPath: indexPath)
         cell.imageView?.image = UIImage(named: "DefaultRecipeImage")?.resize(newWidth: 20, newHeight: 20)
 
-        recipeListViewModel.recipeSearchImageForRowAt(indexPath: indexPath) { (image, error) in
+        viewModel.recipeSearchImageForRowAt(indexPath: indexPath) { (image, error) in
             
             guard let image = image else {
                 return
@@ -106,7 +106,7 @@ extension RecipeListViewController: UITableViewDataSource {
 extension RecipeListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.didSelect(recipe: recipeListViewModel.recipeForRowAt(indexPath: indexPath))
+        delegate?.didSelect(recipe: viewModel.recipeForRowAt(indexPath: indexPath))
     }
 }
 
@@ -122,7 +122,7 @@ extension RecipeListViewController: UISearchBarDelegate {
             return
         }
 
-        recipeListViewModel.getRecipeList(ingredient: text)
+        viewModel.getRecipeList(ingredient: text)
     }
 }
 
@@ -191,11 +191,11 @@ private extension RecipeListViewController {
     }
 
     func updateLabels(errorMessage: String? = nil) {
-        messageLabel.text = errorMessage != nil ? errorMessage : recipeListViewModel.messageText
+        messageLabel.text = errorMessage != nil ? errorMessage : viewModel.messageText
     }
 
     func updateTableView() {
-        tableView.isHidden = recipeListViewModel.isTableViewHidden
+        tableView.isHidden = viewModel.isTableViewHidden
         tableView.reloadData()
     }
 }

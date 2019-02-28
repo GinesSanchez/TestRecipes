@@ -43,11 +43,15 @@ extension RecipesCoordinator: RecipeListViewControllerDelegate {
 
     func didSelect(recipe: RecipeSearchResult) {
 
-        recipeDetailViewController = viewControllerFactory.makeRecipeDetailView(recipe: recipe, appContext: appContext, delegate: self)
+        recipeDetailViewController = viewControllerFactory.makeRecipeDetailView(recipeId: recipe.recipeId, appContext: appContext, delegate: self)
         navigationController?.pushViewController(recipeDetailViewController!, animated: true)
     }
 }
 
 extension RecipesCoordinator: RecipeDetailViewControllerDelegate {
-    //TODO:
+
+    func openWebView(url: URL) {
+        print(url)
+        //TODO: Open web view controller with url
+    }
 }

@@ -21,14 +21,14 @@ public struct Recipe: JSONInitializable {
 
     public let recipeId: String
     public let title: String
-    public let imageUrl: URL
+    public let imageUrl: String
     public let ingredients: [String]
     public let publisher: String
     public let socialRank: String
-    public let instructionsUrl: URL
-    public let originalUrl: URL
+    public let instructionsUrl: String
+    public let originalUrl: String
 
-    public init(recipeId: String, title: String, imageUrl: URL, ingredients: [String], publisher: String, socialRank: String, instructionsUrl: URL, originalUrl: URL) {
+    public init(recipeId: String, title: String, imageUrl: String, ingredients: [String], publisher: String, socialRank: String, instructionsUrl: String, originalUrl: String) {
         self.recipeId = recipeId
         self.title = title
         self.imageUrl = imageUrl
@@ -43,16 +43,12 @@ public struct Recipe: JSONInitializable {
         guard
             let recipeId = json[recipeIdKey] as? String,
             let title = json[titleKey] as? String,
-            let imageUrlString = json[imageUrlKey] as? String,
+            let imageUrl = json[imageUrlKey] as? String,
             let ingredients = json[ingredientsKey] as? [String],
             let publisher = json[publisherKey] as? String,
             let socialRankInt = json[socialRankKey] as? Int,
-            let instructionsUrlString = json[instructionsUrlKey] as? String,
-            let originalUrlString = json[originalUrlKey] as? String,
-
-            let imageUrl = URL(string: imageUrlString),
-            let instructionsUrl = URL(string: instructionsUrlString),
-            let originalUrl = URL(string: originalUrlString)
+            let instructionsUrl = json[instructionsUrlKey] as? String,
+            let originalUrl = json[originalUrlKey] as? String
             else {
                 throw RecipeManagerError.malformedRecipeSearchResultJson
         }
