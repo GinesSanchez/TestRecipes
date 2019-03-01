@@ -10,6 +10,7 @@ import UIKit
 
 protocol RecipeDetailViewControllerDelegate: class {
     func openWebView(url: URL)
+    func viewDidDisappear(viewController: RecipeDetailViewController)
 }
 
 final class RecipeDetailViewController: UIViewController {
@@ -41,6 +42,11 @@ final class RecipeDetailViewController: UIViewController {
         super.viewDidLoad()
 
         setUp()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        delegate?.viewDidDisappear(viewController: self)
     }
 }
 

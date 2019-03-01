@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RecipeListViewControllerDelegate: class {
-    func didSelect(recipe: RecipeSearchResult)
+    func didSelect(recipeSearchResult: RecipeSearchResult)
 }
 
 final class RecipeListViewController: UIViewController {
@@ -106,7 +106,7 @@ extension RecipeListViewController: UITableViewDataSource {
 extension RecipeListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
-        delegate?.didSelect(recipe: viewModel.recipeForRowAt(indexPath: indexPath))
+        delegate?.didSelect(recipeSearchResult: viewModel.recipeForRowAt(indexPath: indexPath))
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

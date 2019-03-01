@@ -42,10 +42,35 @@ class RecipesCoordinatorTest: TestCaseBase {
         XCTAssert(firstViewController is RecipeListViewController)
     }
 
-    func testStop_whenInvoked_shouldNilOutViewController() {
+    func testStop_whenInvoked_shouldNilOutRecipeListViewController() {
         recipesCoordinator?.start() // should create vc
         recipesCoordinator?.stop() //should deallocate the vc
 
         XCTAssert(recipesCoordinator?.recipeListViewController == nil)
+    }
+
+    func testDidSelectRecipe_whenInvoked_shouldInitializeDetailRecipeViewControler() {
+        recipesCoordinator?.didSelect(recipeSearchResult: fakeRecipeSearchResult) // should create vc
+        XCTAssert(recipesCoordinator?.recipeDetailViewController != nil)
+    }
+
+    func testViewDidDisappearRecipeDetailViewController_whenInvoked_shouldNilOutWebViewControler() {
+        recipesCoordinator?.didSelect(recipeSearchResult: fakeRecipeSearchResult) // should create vc
+        recipesCoordinator?.viewDidDisappear(viewController: (recipesCoordinator?.recipeDetailViewController)!)
+
+        XCTAssert(recipesCoordinator?.recipeDetailViewController == nil)
+    }
+
+    func testOpenWebView_whenInvoked_shouldInitializeWebViewControler() {
+        recipesCoordinator?.openWebView(url: fakeOriginalUrl) // should create vc
+
+        XCTAssert(recipesCoordinator?.webViewControler != nil)
+    }
+
+    func testViewDidDisappearWebViewController_whenInvoked_shouldNilOutWebViewControler() {        
+        recipesCoordinator?.openWebView(url: fakeOriginalUrl) // should create vc
+        recipesCoordinator?.viewDidDisappear(viewController: (recipesCoordinator?.webViewControler)!)
+
+        XCTAssert(recipesCoordinator?.webViewControler == nil)
     }
 }

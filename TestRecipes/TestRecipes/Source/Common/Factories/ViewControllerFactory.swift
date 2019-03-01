@@ -25,9 +25,10 @@ final class ViewControllerFactory: ViewControllerFactoryType {
         return recipeDetailVC
     }
 
-    func makeWebView(url: URL) -> WebViewController {
+    func makeWebView(url: URL, delegate: WebViewControllerDelegate) -> WebViewController {
         let webVC = WebViewController()
         webVC.url = url
+        webVC.delegate = delegate
         return webVC
     }
 }

@@ -9,9 +9,14 @@
 import UIKit
 import WebKit
 
+protocol WebViewControllerDelegate: class {
+    func viewDidDisappear(viewController: WebViewController)
+}
+
 final class WebViewController: UIViewController {
 
     //Public Properties
+    weak var delegate: WebViewControllerDelegate?
     var url: URL!
 
     //IBOutlets
@@ -21,6 +26,11 @@ final class WebViewController: UIViewController {
         super.viewDidLoad()
 
         setUp()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        delegate?.viewDidDisappear(viewController: self)
     }
 }
 

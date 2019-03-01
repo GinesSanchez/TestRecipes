@@ -42,9 +42,9 @@ final class RecipesCoordinator: RecipesCoordinatorType {
 
 extension RecipesCoordinator: RecipeListViewControllerDelegate {
 
-    func didSelect(recipe: RecipeSearchResult) {
+    func didSelect(recipeSearchResult: RecipeSearchResult) {
 
-        recipeDetailViewController = viewControllerFactory.makeRecipeDetailView(recipeId: recipe.recipeId, appContext: appContext, delegate: self)
+        recipeDetailViewController = viewControllerFactory.makeRecipeDetailView(recipeId: recipeSearchResult.recipeId, appContext: appContext, delegate: self)
         navigationController?.pushViewController(recipeDetailViewController!, animated: true)
     }
 }
@@ -52,7 +52,19 @@ extension RecipesCoordinator: RecipeListViewControllerDelegate {
 extension RecipesCoordinator: RecipeDetailViewControllerDelegate {
 
     func openWebView(url: URL) {
-        webViewControler = viewControllerFactory.makeWebView(url: url)
+        webViewControler = viewControllerFactory.makeWebView(url: url, delegate: self)
         navigationController?.pushViewController(webViewControler!, animated: true)        
+    }
+
+    func viewDidDisappear(viewController: RecipeDetailViewController) {
+        recipeDetailViewController = nil
+    }
+
+}
+
+extension RecipesCoordinator: WebViewControllerDelegate {
+
+    func viewDidDisappear(viewController: WebViewController) {
+        webViewControler = nil
     }
 }
