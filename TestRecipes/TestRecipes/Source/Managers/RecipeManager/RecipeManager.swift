@@ -51,7 +51,7 @@ final class RecipeManager: RecipeManagerType {
                                                parameters: [Constants.RecipeAPIDetails.searchQueryKey : ingredient ?? "",
                                                             Constants.RecipeAPIDetails.apiKey: Constants.RecipeAPIDetails.apiKeyValue])
 
-        networkManager.getJson(url: url) { (json, error) in
+        networkManager.requestJson(url: url) { (json, error) in
             guard let json = json else {
                 guard let error = error else {
                     completionHandler(nil, .unknownError)
@@ -92,7 +92,7 @@ final class RecipeManager: RecipeManagerType {
     func getRecipeImage(urlString: String, completionHandler: @escaping (UIImage?, RecipeManagerError?) -> Void) {        
 
         if let url = URL(unsecureUrlString: urlString) {
-            networkManager.getImage(url: url) { (image, error) in
+            networkManager.requestImage(url: url) { (image, error) in
                 guard let image = image else {                    
                     guard let error = error else {
                         completionHandler(nil, .unknownError)
@@ -128,7 +128,7 @@ final class RecipeManager: RecipeManagerType {
                                                parameters: [Constants.RecipeAPIDetails.recipeIdKey : id,
                                                             Constants.RecipeAPIDetails.apiKey: Constants.RecipeAPIDetails.apiKeyValue])
 
-        networkManager.getJson(url: url) { (json, error) in
+        networkManager.requestJson(url: url) { (json, error) in
             guard let json = json else {
                 guard let error = error else {
                     completionHandler(nil, .unknownError)

@@ -20,26 +20,26 @@ protocol NetworkManagerType {
     /// - Returns: URL
     func createURLWith(apiScheme: String, apiHost: String, apiPath: String, parameters: [String:Any]) -> URL
 
-    /// Get json from URL
+    /// Request json from URL
     ///
     /// - Parameter
     ///     - url: url for the get request.
     ///     - completionHandler: will be triggred when the request is done. If it is successfull, the json in a dictionary format is returned. Error will be nil if successful. If there is an error, an error is returned, and dictionary will be nil.
-    func getJson(url: URL, completionHandler: @escaping ([String: Any]?, Error?) -> Void)
+    func requestJson(url: URL, completionHandler: @escaping ([String: Any]?, Error?) -> Void)
 
-    /// Get data asynchronously from URL
+    /// Request data asynchronously from URL
     ///
     /// - Parameter
     ///     - url: url for the get request.
     ///     - completionHandler: will be triggred when the request is done. If it is successfull, the data is returned. Error will be nil if successful. If there is an error, an error is returned, and dictionary will be nil. The response will have meta information about the request.
-    func getData(url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void)
+    func requestData(url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void)
 
-    /// Get image asynchronously from URL
+    /// Request image asynchronously from URL
     ///
     /// - Parameter
     ///     - url: url for the get request.
     ///     - completionHandler: will be triggred when the request is done. If it is successfull, the image is returned. Error will be nil if successful. If there is an error, an error is returned, and dictionary will be nil.
-    func getImage(url: URL, completionHandler: @escaping (UIImage?, Error?) -> Void)
+    func requestImage(url: URL, completionHandler: @escaping (UIImage?, Error?) -> Void)
 }
 
 
@@ -62,7 +62,7 @@ final class NetworkManager: NetworkManagerType {
         return components.url!
     }
 
-    func getJson(url: URL, completionHandler: @escaping ([String: Any]?, Error?) -> Void) {
+    func requestJson(url: URL, completionHandler: @escaping ([String: Any]?, Error?) -> Void) {
 
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
             guard let data = data else {
@@ -80,12 +80,12 @@ final class NetworkManager: NetworkManagerType {
         task.resume()
     }
 
-    func getData(url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    func requestData(url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         URLSession.shared.dataTask(with: url, completionHandler: completionHandler).resume()
     }
 
-    func getImage(url: URL, completionHandler: @escaping (UIImage?, Error?) -> Void) {
-        getData(url: url) { (data, response, error) in
+    func requestImage(url: URL, completionHandler: @escaping (UIImage?, Error?) -> Void) {
+        requestData(url: url) { (data, response, error) in
             guard let data = data else {
                 completionHandler(nil, error)
                 return
