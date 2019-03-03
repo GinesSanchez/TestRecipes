@@ -13,7 +13,6 @@
 		2222887522270C6F00CA6E5D /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2222887422270C6F00CA6E5D /* URL.swift */; };
 		2224CF04222909A9006D6506 /* FakeConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224CF03222909A9006D6506 /* FakeConstants.swift */; };
 		22293C802225C32100679971 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293C7F2225C32100679971 /* AppDelegate.swift */; };
-		22293C822225C32100679971 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293C812225C32100679971 /* ViewController.swift */; };
 		22293C872225C32200679971 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22293C862225C32200679971 /* Assets.xcassets */; };
 		22293C8A2225C32200679971 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22293C882225C32200679971 /* LaunchScreen.storyboard */; };
 		22293CA32225C63400679971 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22293CA22225C63400679971 /* AppCoordinator.swift */; };
@@ -64,7 +63,6 @@
 		2224CF03222909A9006D6506 /* FakeConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeConstants.swift; sourceTree = "<group>"; };
 		22293C7C2225C32100679971 /* TestRecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestRecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22293C7F2225C32100679971 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		22293C812225C32100679971 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		22293C862225C32200679971 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22293C892225C32200679971 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22293C8B2225C32200679971 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 			children = (
 				22293CA02225C5C700679971 /* Resources */,
 				22293C9F2225C5B400679971 /* Source */,
-				22293C812225C32100679971 /* ViewController.swift */,
 				22293C882225C32200679971 /* LaunchScreen.storyboard */,
 				22293C8B2225C32200679971 /* Info.plist */,
 			);
@@ -179,8 +176,17 @@
 		22293C9F2225C5B400679971 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				2242D8052227C36000F30DE8 /* Enums */,
+				2222887322270C6200CA6E5D /* Extensions */,
+				22293CB22225C6C600679971 /* Factories */,
+				22293CBE2225CAC500679971 /* Managers */,
+				22293CBB2225C7C500679971 /* Protocols */,
 				22293CA82225C67300679971 /* Views */,
-				22293CA12225C5F900679971 /* Common */,
+				22293CA62225C64F00679971 /* AppContext.swift */,
+				22293CA22225C63400679971 /* AppCoordinator.swift */,
+				2242D8292228230400F30DE8 /* AppCoordinatorTest.swift */,
+				22293C7F2225C32100679971 /* AppDelegate.swift */,
+				22293CC32225CB2900679971 /* Constants.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -191,23 +197,6 @@
 				22293C862225C32200679971 /* Assets.xcassets */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		22293CA12225C5F900679971 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				2242D8052227C36000F30DE8 /* Enums */,
-				2222887322270C6200CA6E5D /* Extensions */,
-				22293CB22225C6C600679971 /* Factories */,
-				22293CBE2225CAC500679971 /* Managers */,
-				22293CBB2225C7C500679971 /* Protocols */,
-				22293CA62225C64F00679971 /* AppContext.swift */,
-				22293CA22225C63400679971 /* AppCoordinator.swift */,
-				2242D8292228230400F30DE8 /* AppCoordinatorTest.swift */,
-				22293C7F2225C32100679971 /* AppDelegate.swift */,
-				22293CC32225CB2900679971 /* Constants.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		22293CA82225C67300679971 /* Views */ = {
@@ -444,7 +433,6 @@
 				2222887222266BE900CA6E5D /* RecipeManagerError.swift in Sources */,
 				22293CB12225C6BA00679971 /* RecipeListViewModel.swift in Sources */,
 				22293CA32225C63400679971 /* AppCoordinator.swift in Sources */,
-				22293C822225C32100679971 /* ViewController.swift in Sources */,
 				2242D8122227E65100F30DE8 /* RecipeDetailViewModel.swift in Sources */,
 				2222887522270C6F00CA6E5D /* URL.swift in Sources */,
 				2242D8092227CF5D00F30DE8 /* UIImage.swift in Sources */,
