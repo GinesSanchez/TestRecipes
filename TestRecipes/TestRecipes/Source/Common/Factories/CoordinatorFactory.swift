@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 
+protocol CoordinatorFactoryType {
+
+    func makeAppCoordinator(appContext: AppContextType, navigationController: UINavigationController) -> AppCoordinatorType
+
+    func makeRecipesCoordinator(appContext: AppContextType, navigationController: UINavigationController) -> RecipesCoordinatorType
+}
+
 final class CoordinatorFactory: CoordinatorFactoryType {
 
     func makeAppCoordinator(appContext: AppContextType, navigationController: UINavigationController) -> AppCoordinatorType {
